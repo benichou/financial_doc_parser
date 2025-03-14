@@ -19,6 +19,15 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
+<div align="center">
+    <img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 30%;"
+    src="https://github.com/benichou/financial_doc_parser/blob/main/efs_parsing/assets/logo/financial_documents_logo.png"
+    alt="Our logo">
+    </img>
 
   <h3 align="center">Financial Services Information Parsing</h3>
 
@@ -57,12 +66,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Repo
 
-This repo aims to build the base capabilities to extract information from EFS documents, with a particular concern
+This repo aims to build the base capabilities to extract information from financial documents, with a particular concern
 for financial information and mathematical equations.
 
 The repo limits ingesting to pptx and pdf files, parses these files and converts the parsed output into markdown and word documents.
 
-This limited scope of files to extract information from (that is PPTX and PDF) has been agreed upon with EFS business team.
+This limited scope of files to extract information from (that is PPTX and PDF) has been agreed upon with financial business team.
 
 Please note that the pptx parsing is conducted by using the `unstructured` open source library while the pdf parsing is done 
 with `docling` from IBM.
@@ -82,7 +91,7 @@ This repository contains the following structure to help you navigate and unders
 
 The repo tree to update since I have made it a package for code reusability
 ```plaintext
-📂 EFS Project/
+📂 Financial_Doc_Parser/
 ├── 📁 analysis/                              # analysis of the file pages and pictures to augment parsing
 │   ├── 🐍 page_analysis.py                   # series of functions that analyze pages of a file to determine base64 encoding
 │   └── 🐍 picture_analysis.py                # series of functions that analyze whether pictures should be kept in the parsing output
@@ -92,9 +101,9 @@ The repo tree to update since I have made it a package for code reusability
 ├── 📁 conversion/                            # analysis of the file pages and pictures to augment parsing
 │   ├── 🐍 efs_file_conversion.py             # conversion of parsed output to markdown (applies to pptx only) and word document | Supports Human in the Loop       
 ├── 📁 custom_loader/                         # custom loaders to support specific parsing requirements of financial files for both pptx and pdf
-│   ├── 📁 docling/                           # modified docling parser (modified to suppor the specific parsing needs for EFS)  
+│   ├── 📁 docling/                           # modified docling parser (modified to support the specific parsing needs for Financial Documents)  
 |   |   └── 🐍 pdf_custom_loader.py           # Docling parser to support more specialized needs beyond the native capabilities provided by native docling            
-│   └── 📁 unstructured/                      # modified unstructured parser (modified to suppor the specific parsing needs for EFS)
+│   └── 📁 unstructured/                      # modified unstructured parser (modified to suppor the specific parsing needs for Financial Documents)
 |       ├── 🐍 pdf_custom_loader.py           # deprecated/disregard
 |       └── 🐍 powerpoint_custom_loader.py    # Unstrutured parser to support more specialized needs beyond the native capabilities provided by native unstructured
 ├── 📁 extracted_output/                      # local destination of saving the different parsed individual artefacts for individual files 
@@ -105,7 +114,7 @@ The repo tree to update since I have made it a package for code reusability
 |   |       ├── 📁 images_output/             # stores the original pictures from document after second pass with modified parser 
 |   |       ├── 📁 pages_img_output/          # stores the original pages of the doc and converted to an image
 |   |       └── 📁 tables_output/             # stores the parsed tables in html, csv, and html format
-│   └── 📁 pptx/                              # modified unstructured parser (modified to suppor the specific parsing needs for EFS) 
+│   └── 📁 pptx/                              # modified unstructured parser (modified to suppor the specific parsing needs for Financial Documents) 
 |       └── 📁 pptx_file_1/                   # single individual parsed file
 |           ├── 📁 images_output/             # stores the pictures deemed relevant for the business and compressed
 |           └── 📁 pages_img_output/          # stores the original pictures from document including the compressed ones (used for base64 encoding and use by LLM for parsing)
@@ -125,7 +134,7 @@ The repo tree to update since I have made it a package for code reusability
 ├── 📁 prompt                                 # prompt folder to manage prompts and llm personas
 |    ├── 🐍 model_persona_repo.py             # manage the llm personas
 |    ├── 🐍 prompt_mgmt.py                    # handles manipulation of prompts to apply the correct one in the appropriate context
-|    └── 🐍 prompt_repo.py                    # stores all prompts for the EFS solution
+|    └── 🐍 prompt_repo.py                    # stores all prompts for the Financial Documents solution
 ├── 📁 tesseract/                             # aimed to initially support tesseract for pptx parsing with unstructured - not needed anymore - deprecated
 ├── 📁 utilities/                             # stores all necessary utilities functions (functions used often across the modules without being task/domain specific)
 |   ├── 🐍 llm_structured_output.py           # stores the structured output classes
